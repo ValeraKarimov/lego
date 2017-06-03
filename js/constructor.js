@@ -38,7 +38,7 @@ carouselCont.addEventListener('change', function (e) {
 		
 document.querySelector('.color input').addEventListener('click', function () {
 
-	userSetting.color = '0x' + document.querySelector('.color input').value;
+	userSetting.color = '0x' + document.querySelector('.color input').value || '0xffffff';
 
 	console.log(userSetting.color)
 
