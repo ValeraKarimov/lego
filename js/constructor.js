@@ -155,7 +155,7 @@ function onDocumentMouseMove( event ) {
 		var intersect = intersects[ 0 ];
 
 		rollOverMesh.position.copy( intersect.point ).add( intersect.face.normal );
-		rollOverMesh.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
+		rollOverMesh.position.divideScalar( 20 ).floor().multiplyScalar( 20 ).addScalar( 10 );
 
 	}
 
@@ -170,7 +170,7 @@ function onDocumentMouseDown( event ) {
 	cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, map: new THREE.TextureLoader().load( textureImg ) } );
 	cubeMaterial.wrapS = THREE.RepeatWrapping;
 	cubeMaterial.wrapT = THREE.RepeatWrapping;
-	cubeMaterial.repeat.set( 1, 0 );
+	cubeMaterial.repeat.set( 1, 1 );
 
 
 	// cubeMaterial = new THREE.CubeTextureLoader().setPath('img/').load([
