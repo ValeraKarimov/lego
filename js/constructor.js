@@ -61,7 +61,7 @@ function init() {
 
 	// roll-over helpers
 
-	rollOverGeo = new THREE.BoxGeometry( 50, 50, 50 );
+	rollOverGeo = new THREE.BoxGeometry( 150, 50, 50 );
 	rollOverMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000, opacity: 0.5, transparent: true } );
 	rollOverMesh = new THREE.Mesh( rollOverGeo, rollOverMaterial );
 	scene.add( rollOverMesh );
@@ -73,7 +73,7 @@ function init() {
 
 	// grid
 
-	var size = 500, step = 10;
+	var size = 500, step = 20;
 
 	var geometry = new THREE.Geometry();
 
