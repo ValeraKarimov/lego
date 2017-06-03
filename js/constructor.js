@@ -155,7 +155,7 @@ function onDocumentMouseMove( event ) {
 		var intersect = intersects[ 0 ];
 
 		rollOverMesh.position.copy( intersect.point ).add( intersect.face.normal );
-		rollOverMesh.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
+		rollOverMesh.position.divideScalar( 150 ).floor().multiplyScalar( 50 ).addScalar( 25 );
 
 	}
 
@@ -205,7 +205,7 @@ function onDocumentMouseDown( event ) {
 
 			var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
 			voxel.position.copy( intersect.point ).add( intersect.face.normal );
-			voxel.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
+			voxel.position.divideScalar( 150 ).floor().multiplyScalar( 50 ).addScalar( 25 );
 			scene.add( voxel );
 
 			objects.push( voxel );
