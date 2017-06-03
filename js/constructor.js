@@ -168,7 +168,7 @@ function onDocumentMouseDown( event ) {
 	event.preventDefault();
 
 	// cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, map: new THREE.TextureLoader().load( textureImg ) } );
-	cubeMaterial = new THREE.CubeTextureLoader().setPath('img/').load([
+	cubeMaterial = new THREE.CubeTextureLoader().setPath('../img/').load([
 						'lego.png',
 						'lego.png',
 						'lego.png',
