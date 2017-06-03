@@ -87,7 +87,7 @@ function init() {
 
 	// }
 
-	var geometry = new THREE.PlaneGeometry(100, 2, 10)
+	var geometry = new THREE.PlaneGeometry(window.innerWidth, 10, window.innerHeight)
 
 	var material = new THREE.PointsMaterial( { map: new THREE.TextureLoader().load( 'img/lego.png' ) } );
 
