@@ -54,7 +54,7 @@ function init() {
 
 
 	camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
-	camera.position.set( 500, 800, 1500 );
+	camera.position.set( 0, 800, 1500 );
 	camera.lookAt( new THREE.Vector3() );
 
 	scene = new THREE.Scene();
