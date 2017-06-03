@@ -176,8 +176,6 @@ function onDocumentMouseDown( event ) {
 
 	// cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xe3ca18, map: new THREE.TextureLoader().load( userSetting.texture ) } );
 	
-	
-
 	var cubeMaterial = []
 
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
@@ -186,9 +184,6 @@ function onDocumentMouseDown( event ) {
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-
-	return cubeMaterial;
-
 
 	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 
