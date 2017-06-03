@@ -70,7 +70,7 @@ function init() {
 
 	cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
 
-	cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, map: new THREE.TextureLoader().load( textureImg ) } ); 
+	cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, map: new THREE.TextureLoader().load( toString(textureImg) ) } ); 
 
 	// grid
 
