@@ -78,22 +78,6 @@ function init() {
 
 	cubeGeo = new THREE.BoxGeometry( 60, 20, 20, 10, 10, 10 );
 
-
-	function cubeMaterialFunc ()  {
-
-		var cubeMaterial = []
-
-		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map: new THREE.TextureLoader().load( (userSetting.texture || 'img/lego-2.png') ) }) ); // top 
-		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-
-		return cubeMaterial;
-
-	}
-
 	// grid
 
 	var size = 500, step = 20;
@@ -194,6 +178,18 @@ function onDocumentMouseDown( event ) {
 	
 	
 
+	var cubeMaterial = []
+
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map: new THREE.TextureLoader().load( (userSetting.texture || 'img/lego-2.png') ) }) ); // top 
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+
+	return cubeMaterial;
+
+
 	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 
 	raycaster.setFromCamera( mouse, camera );
@@ -220,7 +216,7 @@ function onDocumentMouseDown( event ) {
 
 		} else {
 
-			var voxel = new THREE.Mesh( cubeGeo, cubeMaterialFunc() );
+			var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
 			voxel.position.copy( intersect.point ).add( intersect.face.normal );
 			voxel.position.divideScalar( 20 ).floor().multiplyScalar( 20 ).addScalar( 10 );
 			scene.add( voxel );
