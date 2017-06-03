@@ -97,7 +97,7 @@ function init() {
 	raycaster = new THREE.Raycaster();
 	mouse = new THREE.Vector2();
 
-	var geometry = new THREE.PlaneBufferGeometry( 2000, 2000 );
+	var geometry = new THREE.PlaneBufferGeometry( window.innerWidth, window.innerHeight );
 	geometry.rotateX( - Math.PI / 2 );
 
 	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { visible: false } ) );
