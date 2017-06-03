@@ -87,7 +87,7 @@ function init() {
 
 	}
 
-	var material = new THREE.LineBasicMaterial( { color: 0x000000, opacity: 0.2, transparent: true } );
+	var material = new THREE.PointsMaterial( { map: new THREE.TextureLoader().load( 'img/lego.png' ) } } );
 
 	var line = new THREE.LineSegments( geometry, material );
 	scene.add( line );
