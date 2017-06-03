@@ -73,7 +73,7 @@ function init() {
 
 	// grid
 
-	var size = 500, step = 50;
+	var size = 1000, step = 20;
 
 	var geometry = new THREE.Geometry();
 
@@ -172,12 +172,12 @@ function onDocumentMouseDown( event ) {
 
 	var cubeMaterial = []
 
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xe3ca18 }) );
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xe3ca18 }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ map: new THREE.TextureLoader().load( textureImg ) }) ); // top 
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xe3ca18 }) );
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xe3ca18 }) );
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xe3ca18 }) );
 
 	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 
