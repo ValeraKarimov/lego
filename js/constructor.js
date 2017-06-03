@@ -68,7 +68,7 @@ function init() {
 
 	// cubes
 
-	cubeGeo = new THREE.BoxGeometry( 60, 20, 20 );
+	cubeGeo = new THREE.BoxGeometry( 60, 20, 20, 10, 10, 10 );
 
 
 	// grid
@@ -167,17 +167,10 @@ function onDocumentMouseDown( event ) {
 
 	event.preventDefault();
 
-	// cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xe3ca18, map: new THREE.TextureLoader().load( textureImg ) } );
+	cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xe3ca18, map: new THREE.TextureLoader().load( textureImg ) } );
 
 
-	cubeMaterial = new THREE.CubeTextureLoader().load([
-						'img/lego.png',
-						'img/lego.png',
-						'img/lego.png',
-						'img/lego.png',
-						'img/lego.png',
-						'img/lego.png'
-					]);
+
 
 	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 
