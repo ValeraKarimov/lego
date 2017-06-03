@@ -52,7 +52,7 @@ function init() {
 
 	var info = document.createElement( 'div' );
 	info.style.position = 'absolute';
-	info.style.top = '10px';
+	info.style.bottom = '10px';
 	info.style.width = '100%';
 	info.style.textAlign = 'center';
 	info.innerHTML = '<strong>click</strong>: add cube, <strong>shift + click</strong>: remove cube';
