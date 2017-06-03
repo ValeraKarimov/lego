@@ -66,10 +66,6 @@ function init() {
 	rollOverMesh = new THREE.Mesh( rollOverGeo, rollOverMaterial );
 	scene.add( rollOverMesh );
 
-	// cubes
-
-	cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
-
 
 	// grid
 
@@ -167,6 +163,9 @@ function onDocumentMouseDown( event ) {
 
 	event.preventDefault();
 
+	// cubes
+
+	cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
 	cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, map: new THREE.TextureLoader().load( textureImg ) } ); 
 
 	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
