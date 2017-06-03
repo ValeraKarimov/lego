@@ -169,7 +169,17 @@ function onDocumentMouseDown( event ) {
 
 	event.preventDefault();
 
-	cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xe3ca18, map: new THREE.TextureLoader().load( textureImg ) } );
+	// cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xe3ca18, map: new THREE.TextureLoader().load( textureImg ) } );
+	
+
+	var cubeMaterial = []
+
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ map: new THREE.TextureLoader().load( 'textureImg' ) }) // t )op 
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
 
 	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 
