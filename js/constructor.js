@@ -174,7 +174,7 @@ function onDocumentMouseDown( event ) {
 
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ map: new THREE.TextureLoader().load( 'textureImg' ) }) // t )op 
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ map: new THREE.TextureLoader().load( 'textureImg' ) }) ); // top 
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: 0xffffffff }) );
