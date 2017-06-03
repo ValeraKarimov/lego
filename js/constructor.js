@@ -144,7 +144,7 @@ function onDocumentMouseMove( event ) {
 
 	event.preventDefault();
 
-	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 3, - ( event.clientY / window.innerHeight ) * 2 + 3 );
+	mouse.set( ( event.clientX / window.innerWidth ) * 3 - 1, - ( event.clientY / window.innerHeight ) * 3 + 1 );
 
 	raycaster.setFromCamera( mouse, camera );
 
