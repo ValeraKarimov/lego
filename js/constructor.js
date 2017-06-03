@@ -73,7 +73,7 @@ function init() {
 
 	// grid
 
-	var size = window.innerWidth, step = 20;
+	var size = 700, step = 20;
 
 	var geometry = new THREE.Geometry();
 
@@ -97,7 +97,7 @@ function init() {
 	raycaster = new THREE.Raycaster();
 	mouse = new THREE.Vector2();
 
-	var geometry = new THREE.PlaneBufferGeometry( window.innerWidth, window.innerHeight );
+	var geometry = new THREE.PlaneBufferGeometry( 1400, 1400 );
 	geometry.rotateX( - Math.PI / 2 );
 
 	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { visible: false } ) );
