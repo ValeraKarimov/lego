@@ -11,6 +11,14 @@ var textureImg;
 
 var carouselCont = document.querySelector('.carousel');
 
+(function () {
+
+	for (var i = carouselCont.children.length - 1; i >= 0; i--) {
+		carouselCont.children[i].style.backgroundImage = "url(" + carouselCont.children[i].getAttribute('data-texture') + ")";
+	}
+
+})();
+
 carouselCont.addEventListener('click', function (e) {
 
 	if (e.target.className == 'item') {

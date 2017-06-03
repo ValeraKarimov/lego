@@ -17,8 +17,10 @@ body {
 	height: 50px;
 	margin: 0 10px;
 	border: 2px solid transparent;
-	background: url('../img/square-outline-textured.png') 50% 50% ;
+	background-position: 50% 50% ;
 }
+
+
 
 .carousel .item.active {
 	border: 2px solid blue;
