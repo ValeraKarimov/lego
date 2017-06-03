@@ -180,7 +180,7 @@ function onDocumentMouseDown( event ) {
 
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map: new THREE.TextureLoader().load( userSetting.texture ) }) ); // top 
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map: new THREE.TextureLoader().load( (userSetting.texture || 'img/lego-2.png') ) }) ); // top 
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
