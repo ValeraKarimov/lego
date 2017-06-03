@@ -9,9 +9,7 @@ var objects = [];
 
 var carouselCont = document.querySelector('.carousel');
 
-var userSetting = {
-	color: document.querySelector('.color input').value()
-};
+var userSetting = {};
 
 (function () {
 
@@ -38,6 +36,11 @@ carouselCont.addEventListener('click', function (e) {
 
 }, false);
 		
+document.querySelector('.color input').addEventListener('click', function () {
+
+	userSetting.color: document.querySelector('.color input').value();
+
+}, false)
 
 
 init();
