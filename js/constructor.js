@@ -167,7 +167,8 @@ function onDocumentMouseDown( event ) {
 
 	event.preventDefault();
 
-	cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, map: new THREE.TextureLoader().load( textureImg ) } ); 
+	cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, map: new THREE.TextureLoader().load( textureImg ) } );
+	cubeMaterial.repeat.set( 1, 1 ); 
 
 	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 
