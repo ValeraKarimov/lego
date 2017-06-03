@@ -54,8 +54,8 @@ function init() {
 
 
 	camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
-	camera.position.set( 0, 1200, 1200 );
-	camera.rotation.y = 60;
+	camera.position.set( 0, 800, 800 );
+	camera.rotation.y = 140;
 	camera.lookAt( new THREE.Vector3() );
 
 	scene = new THREE.Scene();
@@ -74,7 +74,7 @@ function init() {
 
 	// grid
 
-	var size = 700, step = 20;
+	var size = 500, step = 20;
 
 	var geometry = new THREE.Geometry();
 
@@ -98,7 +98,7 @@ function init() {
 	raycaster = new THREE.Raycaster();
 	mouse = new THREE.Vector2();
 
-	var geometry = new THREE.PlaneBufferGeometry( 1400, 1400 );
+	var geometry = new THREE.PlaneBufferGeometry( 1000, 1000 );
 	geometry.rotateX( - Math.PI / 2 );
 
 	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { visible: false } ) );
