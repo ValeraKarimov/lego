@@ -32,6 +32,8 @@ carouselCont.addEventListener('click', function (e) {
 
 		userSetting.texture = e.target.getAttribute('data-texture');
 
+		cubeMaterialFunc();
+
 	}
 
 }, false);
@@ -39,6 +41,8 @@ carouselCont.addEventListener('click', function (e) {
 document.querySelector('.color input').addEventListener('change', function () {
 
 	userSetting.color = (document.querySelector('.color input').value !== undefined) ?  document.querySelector('.color input').value : '#ffffff';
+
+	cubeMaterialFunc();
 
 }, false)
 
@@ -76,6 +80,21 @@ function init() {
 
 	cubeGeo = new THREE.BoxGeometry( 60, 20, 20, 10, 10, 10 );
 
+
+	function cubeMaterialFunc ()  {
+
+		var cubeMaterial = []
+
+		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map: new THREE.TextureLoader().load( (userSetting.texture || 'img/lego-2.png') ) }) ); // top 
+		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+
+		return cubeMaterial;
+
+	}
 
 	// grid
 
@@ -176,14 +195,7 @@ function onDocumentMouseDown( event ) {
 	// cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xe3ca18, map: new THREE.TextureLoader().load( userSetting.texture ) } );
 	
 
-	var cubeMaterial = []
-
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map: new THREE.TextureLoader().load( (userSetting.texture || 'img/lego-2.png') ) }) ); // top 
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+	
 
 	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 
