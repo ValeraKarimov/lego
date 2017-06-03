@@ -144,7 +144,7 @@ function onDocumentMouseMove( event ) {
 
 	event.preventDefault();
 
-	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
+	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 3, - ( event.clientY / window.innerHeight ) * 2 + 3 );
 
 	raycaster.setFromCamera( mouse, camera );
 
@@ -168,9 +168,6 @@ function onDocumentMouseDown( event ) {
 	event.preventDefault();
 
 	cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xe3ca18, map: new THREE.TextureLoader().load( textureImg ) } );
-
-
-
 
 	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 
