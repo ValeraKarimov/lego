@@ -167,17 +167,17 @@ function onDocumentMouseDown( event ) {
 
 	event.preventDefault();
 
-	cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xe3ca18, map: new THREE.TextureLoader().load( textureImg ) } );
+	// cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xe3ca18, map: new THREE.TextureLoader().load( textureImg ) } );
 
 
-	// cubeMaterial = new THREE.CubeTextureLoader().setPath('img/').load([
-	// 					'lego.png',
-	// 					'lego.png',
-	// 					'lego.png',
-	// 					'lego.png',
-	// 					'lego.png',
-	// 					'lego.png'
-	// 				]);
+	cubeMaterial = new THREE.CubeTextureLoader().load([
+						'img/lego.png',
+						'img/lego.png',
+						'img/lego.png',
+						'img/lego.png',
+						'img/lego.png',
+						'img/lego.png'
+					]);
 
 	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 
