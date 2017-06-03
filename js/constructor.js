@@ -192,7 +192,7 @@ function onDocumentMouseDown( event ) {
 
 	// cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xe3ca18, map: new THREE.TextureLoader().load( userSetting.texture ) } );
 	
-	cubeMaterialFunc();
+	
 
 	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 
@@ -220,7 +220,7 @@ function onDocumentMouseDown( event ) {
 
 		} else {
 
-			var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
+			var voxel = new THREE.Mesh( cubeGeo, cubeMaterialFunc() );
 			voxel.position.copy( intersect.point ).add( intersect.face.normal );
 			voxel.position.divideScalar( 20 ).floor().multiplyScalar( 20 ).addScalar( 10 );
 			scene.add( voxel );
