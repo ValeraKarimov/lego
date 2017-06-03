@@ -89,7 +89,7 @@ function init() {
 
 	var material = new THREE.PointsMaterial( { map: new THREE.TextureLoader().load( 'img/lego.png' ) } );
 
-	var line = new THREE.LineSegments( geometry, material );
+	var line = new THREE.Mesh( geometry, material );
 	scene.add( line );
 
 	//
