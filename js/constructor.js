@@ -73,19 +73,21 @@ function init() {
 
 	// grid
 
-	var size = 500, step = 20;
+	// var size = 500, step = 20;
 
-	var geometry = new THREE.Geometry();
+	// var geometry = new THREE.Geometry();
 
-	for ( var i = - size; i <= size; i += step ) {
+	// for ( var i = - size; i <= size; i += step ) {
 
-		geometry.vertices.push( new THREE.Vector3( - size, 0, i ) );
-		geometry.vertices.push( new THREE.Vector3(   size, 0, i ) );
+	// 	geometry.vertices.push( new THREE.Vector3( - size, 0, i ) );
+	// 	geometry.vertices.push( new THREE.Vector3(   size, 0, i ) );
 
-		geometry.vertices.push( new THREE.Vector3( i, 0, - size ) );
-		geometry.vertices.push( new THREE.Vector3( i, 0,   size ) );
+	// 	geometry.vertices.push( new THREE.Vector3( i, 0, - size ) );
+	// 	geometry.vertices.push( new THREE.Vector3( i, 0,   size ) );
 
-	}
+	// }
+
+	var geometry = new THREE.PlaneGeometry(100, 2, 10)
 
 	var material = new THREE.PointsMaterial( { map: new THREE.TextureLoader().load( 'img/lego.png' ) } );
 
