@@ -40,8 +40,6 @@ document.querySelector('.color input').addEventListener('change', function () {
 
 	userSetting.color = (document.querySelector('.color input').value !== undefined) ?  document.querySelector('.color input').value : '#ffffff';
 
-	console.log(userSetting.color)
-
 }, false)
 
 
