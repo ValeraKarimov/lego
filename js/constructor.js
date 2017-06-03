@@ -32,7 +32,6 @@ carouselCont.addEventListener('click', function (e) {
 
 		userSetting.texture = e.target.getAttribute('data-texture');
 
-		cubeMaterialFunc();
 
 	}
 
@@ -42,7 +41,6 @@ document.querySelector('.color input').addEventListener('change', function () {
 
 	userSetting.color = (document.querySelector('.color input').value !== undefined) ?  document.querySelector('.color input').value : '#ffffff';
 
-	cubeMaterialFunc();
 
 }, false)
 
@@ -194,8 +192,7 @@ function onDocumentMouseDown( event ) {
 
 	// cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xe3ca18, map: new THREE.TextureLoader().load( userSetting.texture ) } );
 	
-
-	
+	cubeMaterialFunc();
 
 	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 
