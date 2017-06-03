@@ -61,14 +61,14 @@ function init() {
 
 	// roll-over helpers
 
-	rollOverGeo = new THREE.BoxGeometry( 150, 50, 50 );
+	rollOverGeo = new THREE.BoxGeometry( 60, 20, 20 );
 	rollOverMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000, opacity: 0.5, transparent: true } );
 	rollOverMesh = new THREE.Mesh( rollOverGeo, rollOverMaterial );
 	scene.add( rollOverMesh );
 
 	// cubes
 
-	cubeGeo = new THREE.BoxGeometry( 150, 50, 50 );
+	cubeGeo = new THREE.BoxGeometry( 60, 20, 20 );
 
 
 	// grid
