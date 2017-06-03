@@ -207,7 +207,7 @@ function onDocumentMouseDown( event ) {
 
 			var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
 			voxel.position.copy( intersect.point ).add( intersect.face.normal );
-			voxel.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
+			voxel.position.divideScalar( 20 ).floor().multiplyScalar( 20 ).addScalar( 10 );
 			scene.add( voxel );
 
 			objects.push( voxel );
