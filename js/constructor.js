@@ -73,7 +73,7 @@ function init() {
 
 	// grid
 
-	var size = 600, step = 20;
+	var size = window.innerWidth, step = 20;
 
 	var geometry = new THREE.Geometry();
 
