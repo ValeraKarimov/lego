@@ -19,7 +19,7 @@ var userSetting = {};
 
 })();
 
-carouselCont.addEventListener('change', function (e) {
+carouselCont.addEventListener('click', function (e) {
 
 	if (e.target.className == 'item') {
 
@@ -36,7 +36,7 @@ carouselCont.addEventListener('change', function (e) {
 
 }, false);
 		
-document.querySelector('.color input').addEventListener('click', function () {
+document.querySelector('.color input').addEventListener('change', function () {
 
 	userSetting.color = (document.querySelector('.color input').value !== undefined) ?  document.querySelector('.color input').value : '#ffffff';
 
