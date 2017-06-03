@@ -19,7 +19,7 @@ var userSetting = {};
 
 })();
 
-carouselCont.addEventListener('click', function (e) {
+carouselCont.addEventListener('change', function (e) {
 
 	if (e.target.className == 'item') {
 
