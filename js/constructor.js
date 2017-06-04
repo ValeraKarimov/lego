@@ -83,33 +83,40 @@ function init() {
 
 	scene = new THREE.Scene();
 
-	// roll-over helpers
-
-	rollOverGeo = new THREE.BoxGeometry( 60, 20, 20 );
-	rollOverMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000, opacity: 0.5, transparent: true } );
-	rollOverMesh = new THREE.Mesh( rollOverGeo, rollOverMaterial );
-	scene.add( rollOverMesh );
-
-	// cubes
-	
-	var cubeGeo;
+	// roll-over helpers and cube
+	var rollOverGeo;
 
 	function setSizeCube () {
 		if (userSetting.size == '1x1') {
 			cubeGeo = new THREE.BoxGeometry( 20, 20, 20 );
+			rollOverGeo = new THREE.BoxGeometry( 20, 20, 20 );
 		} else if (userSetting.size == '1x2') {
 			cubeGeo = new THREE.BoxGeometry( 40, 20, 20 );
+			rollOverGeo = new THREE.BoxGeometry( 40, 20, 20 );
+
 		} else if (userSetting.size == '1x3') {
 			cubeGeo = new THREE.BoxGeometry( 60, 20, 20 );
+			rollOverGeo = new THREE.BoxGeometry( 60, 20, 20 );
+
 		} else if (userSetting.size == '1x4') {
 			cubeGeo = new THREE.BoxGeometry( 80, 20, 20 );
+			rollOverGeo = new THREE.BoxGeometry( 80, 20, 20 );
+
 		} else if (userSetting.size == '1x5') {
 			cubeGeo = new THREE.BoxGeometry( 100, 20, 20 );
+			rollOverGeo = new THREE.BoxGeometry( 100, 20, 20 );
 		}
-
 	}
+	setSizeCube();
+
+	rollOverMaterial = new THREE.MeshBasicMaterial( { color: userSetting.color, opacity: 0.5, transparent: true } );
+	rollOverMesh = new THREE.Mesh( rollOverGeo, rollOverMaterial );
+	scene.add( rollOverMesh );
+
 	
 	
+	cubeGeo = new THREE.BoxGeometry( 100, 20, 20 );
+
 	// grid
 
 	var size = 500, step = 20;
@@ -215,8 +222,6 @@ function onDocumentMouseDown( event ) {
 
 	event.preventDefault();
 
-	// cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xe3ca18, map: new THREE.TextureLoader().load( userSetting.texture ) } );
-	
 	var cubeMaterial = []
 
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
