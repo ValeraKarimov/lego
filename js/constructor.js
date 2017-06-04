@@ -111,7 +111,7 @@ function init() {
 	texture.wrapS = THREE.RepeatWrapping;
 	texture.wrapT = THREE.RepeatWrapping;
 	texture.repeat.x = 50;
-	texture.repeat.y = 500;
+	texture.repeat.y = 50;
 
 	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture } ) );
 	scene.add( plane );
