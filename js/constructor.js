@@ -11,38 +11,38 @@ var carouselCont = document.querySelector('.carousel');
 
 var userSetting = {};
 
-(function () {
+// (function () {
 
-	for (var i = carouselCont.children.length - 1; i >= 0; i--) {
-		carouselCont.children[i].style.backgroundImage = "url(" + carouselCont.children[i].getAttribute('data-texture') + ")";
-	}
+// 	for (var i = carouselCont.children.length - 1; i >= 0; i--) {
+// 		carouselCont.children[i].style.backgroundImage = "url(" + carouselCont.children[i].getAttribute('data-texture') + ")";
+// 	}
 
-})();
+// })();
 
-carouselCont.addEventListener('click', function (e) {
+// carouselCont.addEventListener('click', function (e) {
 
-	if (e.target.className == 'item') {
+// 	if (e.target.className == 'item') {
 
-		for (var i = 0; i < carouselCont.children.length; i++) {
-			carouselCont.children[i].classList.remove('active');
-		}
+// 		for (var i = 0; i < carouselCont.children.length; i++) {
+// 			carouselCont.children[i].classList.remove('active');
+// 		}
 		
 		
-		e.target.classList.add('active');
+// 		e.target.classList.add('active');
 
-		userSetting.texture = e.target.getAttribute('data-texture');
+// 		userSetting.texture = e.target.getAttribute('data-texture');
 
 
-	}
+// 	}
 
-}, false);
+// }, false);
 		
-document.querySelector('.color input').addEventListener('change', function () {
+// document.querySelector('.color input').addEventListener('change', function () {
 
-	userSetting.color = (document.querySelector('.color input').value !== undefined) ?  document.querySelector('.color input').value : '#ffffff';
+// 	userSetting.color = (document.querySelector('.color input').value !== undefined) ?  document.querySelector('.color input').value : '#ffffff';
 
 
-}, false)
+// }, false)
 
 
 init();
@@ -114,7 +114,7 @@ function init() {
 	texture.repeat.y = 50;
 
 
-	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( {color: 0xF0F0F0, map: texture } ) );
+	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( {color: 0xffffff, map: texture } ) );
 	scene.add( plane );
 
 	objects.push( plane );
