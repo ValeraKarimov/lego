@@ -113,8 +113,7 @@ function init() {
 	texture.repeat.x = 50;
 	texture.repeat.y = 50;
 
-	raycaster.setFromCamera( mouse, camera );
-
+	
 	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( {color: 0xE3E3E3, map: texture } ) );
 	scene.add( plane );
 
