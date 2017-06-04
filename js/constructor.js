@@ -94,9 +94,9 @@ function init() {
 
 	}
 
-	var material = new THREE.LineBasicMaterial( { color: 0x000000, opacity: 0.2, transparent: true } );
+	var material = new THREE.MeshLambertMaterial( { color: 0x000000, map: new THREE.TextureLoader().load( ( 'img/lego-2.png') )  } );
 
-	var line = new THREE.LineSegments( geometry, material );
+	var line = new THREE.Mesh( geometry, material );
 	scene.add( line );
 
 	//
@@ -104,7 +104,7 @@ function init() {
 	raycaster = new THREE.Raycaster();
 	mouse = new THREE.Vector2();
 
-	var geometry = new THREE.PlaneBufferGeometry( 1000, 1000 );
+	var geometry = new THREE.PlaneBufferGeometry( 950, 970 );
 	geometry.rotateX( - Math.PI / 2 );
 
 	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { visible: false } ) );
@@ -214,10 +214,9 @@ function onDocumentMouseDown( event ) {
 			var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
 			voxel.position.copy( intersect.point ).add( intersect.face.normal );
 			voxel.position.divideScalar( 20 ).floor().multiplyScalar( 20 ).addScalar( 10 );
+			
 			scene.add( voxel );
-
-			objects.push( voxel );
-
+			objects.push( voxel );	
 		}
 
 		render();
