@@ -107,13 +107,13 @@ function init() {
 	var geometry = new THREE.PlaneBufferGeometry( 1000, 1000 );
 	geometry.rotateX( - Math.PI / 2 );
 
-	var texture =  new THREE.TextureLoader().load( ( 'img/lego-2.png') );
+	var texture =  new THREE.TextureLoader().load( ( 'img/lego.png') );
 	texture.wrapS = THREE.RepeatWrapping;
 	texture.wrapT = THREE.RepeatWrapping;
 	texture.repeat.x = 5;
 	texture.repeat.y = 50;
 
-	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture } ) );
+	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( {color: 0xE3E3E3, map: texture } ) );
 	scene.add( plane );
 
 	objects.push( plane );
