@@ -7,6 +7,8 @@ var cubeGeo, cubeMaterial;
 
 var objects = [];
 
+var cubeMaterial = [];
+
 var userSetting = {};
 
 
@@ -116,8 +118,6 @@ function init() {
 			texture.repeat.x = 5;
 		}
 	};
-
-	var cubeMaterial = [];
 
 	function setTextureCube () {
 		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
