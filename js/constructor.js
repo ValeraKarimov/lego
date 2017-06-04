@@ -100,11 +100,11 @@ function init() {
 		if (userSetting.size == '1x5') {
 			cubeGeo = new THREE.BoxGeometry( 100, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 100, 20, 20 );
-			textureCube.repeat.x = 1;
+			textureCube.repeat.x = 5;
 		} else if (userSetting.size == '1x4') {
 			cubeGeo = new THREE.BoxGeometry( 80, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 80, 20, 20 );
-			textureCube.repeat.x = 2;
+			textureCube.repeat.x = 4;
 		} else if (userSetting.size == '1x3') {
 			cubeGeo = new THREE.BoxGeometry( 60, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 60, 20, 20 );
@@ -112,11 +112,11 @@ function init() {
 		} else if (userSetting.size == '1x2') {
 			cubeGeo = new THREE.BoxGeometry( 40, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 40, 20, 20 );
-			textureCube.repeat.x = 4;
+			textureCube.repeat.x = 2;
 		} else if (userSetting.size == '1x1') {
 			cubeGeo = new THREE.BoxGeometry( 20, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 20, 20, 20 );
-			textureCube.repeat.x = 5;
+			textureCube.repeat.x = 1;
 		}
 	};
 
