@@ -107,7 +107,7 @@ function init() {
 	var geometry = new THREE.PlaneBufferGeometry( 950, 970 );
 	geometry.rotateX( - Math.PI / 2 );
 
-	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { visible: false } ) );
+	plane = new THREE.MeshBasicMaterial( geometry, new THREE.MeshBasicMaterial( { visible: false } ) );
 	scene.add( plane );
 
 	objects.push( plane );
