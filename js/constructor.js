@@ -114,7 +114,7 @@ function init() {
 	texture.repeat.y = 50;
 
 
-	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( {color: 0xE3E3E3, map: texture } ) );
+	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( {color: 0xF0F0F0, map: texture } ) );
 	scene.add( plane );
 
 	objects.push( plane );
@@ -144,7 +144,6 @@ function init() {
 
 	window.addEventListener( 'resize', onWindowResize, false );
 
-	render();
 
 }
 
