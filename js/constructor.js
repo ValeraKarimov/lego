@@ -46,6 +46,7 @@ document.querySelector('.color input').addEventListener('change', function () {
 
 
 init();
+render();
 
 function init() {
 
@@ -112,6 +113,8 @@ function init() {
 	texture.repeat.x = 50;
 	texture.repeat.y = 50;
 
+	raycaster.setFromCamera( mouse, camera );
+
 	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( {color: 0xE3E3E3, map: texture } ) );
 	scene.add( plane );
 
@@ -142,9 +145,6 @@ function init() {
 	window.addEventListener( 'resize', onWindowResize, false );
 
 }
-
-render();
-
 
 function onWindowResize() {
 
