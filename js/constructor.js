@@ -90,11 +90,11 @@ function init() {
 	// roll-over helpers and cube
 	var rollOverGeo;
 
-	var texture = new THREE.TextureLoader().load( ('img/lego.png') );
-	texture.wrapS = THREE.RepeatWrapping;
-	texture.wrapT = THREE.RepeatWrapping;
-	texture.repeat.x = 1;
-	texture.repeat.y = 1;
+	var textureCube = new THREE.TextureLoader().load( ('img/lego.png') );
+	textureCube.wrapS = THREE.RepeatWrapping;
+	textureCube.wrapT = THREE.RepeatWrapping;
+	textureCube.repeat.x = 1;
+	textureCube.repeat.y = 1;
 
 	function setSizeCube () {
 		if (userSetting.size == '1x1') {
@@ -103,26 +103,26 @@ function init() {
 		} else if (userSetting.size == '1x2') {
 			cubeGeo = new THREE.BoxGeometry( 40, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 40, 20, 20 );
-			texture.repeat.x = 2;
+			textureCube.repeat.x = 2;
 		} else if (userSetting.size == '1x3') {
 			cubeGeo = new THREE.BoxGeometry( 60, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 60, 20, 20 );
-			texture.repeat.x = 3;
+			textureCube.repeat.x = 3;
 		} else if (userSetting.size == '1x4') {
 			cubeGeo = new THREE.BoxGeometry( 80, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 80, 20, 20 );
-			texture.repeat.x = 4;
+			textureCube.repeat.x = 4;
 		} else if (userSetting.size == '1x5') {
 			cubeGeo = new THREE.BoxGeometry( 100, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 100, 20, 20 );
-			texture.repeat.x = 5;
+			textureCube.repeat.x = 5;
 		}
 	};
 
 	function setTextureCube () {
 		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map:  texture}) ); // top 
+		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map:  textureCube}) ); // top 
 		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
