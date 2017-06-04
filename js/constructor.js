@@ -97,32 +97,26 @@ function init() {
 	textureCube.repeat.y = 1;
 
 	function setSizeCube () {
-		switch (userSetting.size) {
-			case userSetting.size == '1x1':
-				cubeGeo = new THREE.BoxGeometry( 20, 20, 20 );
-				rollOverGeo = new THREE.BoxGeometry( 20, 20, 20 );
-				textureCube.repeat.x = 1;
-				break;
-			case userSetting.size == '1x2':
-				cubeGeo = new THREE.BoxGeometry( 40, 20, 20 );
-				rollOverGeo = new THREE.BoxGeometry( 40, 20, 20 );
-				textureCube.repeat.x = 2;
-				break;
-			case userSetting.size == '1x3':
-				cubeGeo = new THREE.BoxGeometry( 60, 20, 20 );
-				rollOverGeo = new THREE.BoxGeometry( 60, 20, 20 );
-				textureCube.repeat.x = 3;
-				break;
-			case userSetting.size == '1x4':
-				cubeGeo = new THREE.BoxGeometry( 80, 20, 20 );
-				rollOverGeo = new THREE.BoxGeometry( 80, 20, 20 );
-				textureCube.repeat.x = 4;
-				break;
-			case userSetting.size == '1x5':
-				cubeGeo = new THREE.BoxGeometry( 100, 20, 20 );
-				rollOverGeo = new THREE.BoxGeometry( 100, 20, 20 );
-				textureCube.repeat.x = 5;
-				break;
+		if (userSetting.size == '1x1') {
+			cubeGeo = new THREE.BoxGeometry( 20, 20, 20 );
+			rollOverGeo = new THREE.BoxGeometry( 20, 20, 20 );
+			textureCube.repeat.x = 1;
+		} else if (userSetting.size == '1x2') {
+			cubeGeo = new THREE.BoxGeometry( 40, 20, 20 );
+			rollOverGeo = new THREE.BoxGeometry( 40, 20, 20 );
+			textureCube.repeat.x = 2;
+		} else if (userSetting.size == '1x3') {
+			cubeGeo = new THREE.BoxGeometry( 60, 20, 20 );
+			rollOverGeo = new THREE.BoxGeometry( 60, 20, 20 );
+			textureCube.repeat.x = 3;
+		} else if (userSetting.size == '1x4') {
+			cubeGeo = new THREE.BoxGeometry( 80, 20, 20 );
+			rollOverGeo = new THREE.BoxGeometry( 80, 20, 20 );
+			textureCube.repeat.x = 4;
+		} else if (userSetting.size == '1x5') {
+			cubeGeo = new THREE.BoxGeometry( 100, 20, 20 );
+			rollOverGeo = new THREE.BoxGeometry( 100, 20, 20 );
+			textureCube.repeat.x = 5;
 		}
 	};
 
