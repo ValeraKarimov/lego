@@ -45,7 +45,7 @@ function init() {
 				}
 
 				e.target.classList.add('active');
-				userSetting.size = e.target.getAttribute('data-size') || '1x1';
+				userSetting.size = e.target.getAttribute('data-size');
 
 				setSizeCube();
 			}
@@ -226,7 +226,7 @@ function onDocumentMouseDown( event ) {
 
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map: new THREE.TextureLoader().load( ('img/lego-2.png') ) }) ); // top 
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map: new THREE.TextureLoader().load( ('img/lego.png') ) }) ); // top 
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
