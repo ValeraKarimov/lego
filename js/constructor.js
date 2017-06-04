@@ -90,7 +90,9 @@ function init() {
 
 	var texture = new THREE.TextureLoader().load( ('img/lego.png') );
 	texture.wrapS = THREE.RepeatWrapping;
+	texture.wrapT = THREE.RepeatWrapping;
 	texture.repeat.x = 1;
+	texture.repeat.y = 1;
 
 	function setSizeCube () {
 		if (userSetting.size == '1x1') {
