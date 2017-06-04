@@ -46,7 +46,6 @@ document.querySelector('.color input').addEventListener('change', function () {
 
 
 init();
-render();
 
 function init() {
 
@@ -143,6 +142,9 @@ function init() {
 	window.addEventListener( 'resize', onWindowResize, false );
 
 }
+
+render();
+
 
 function onWindowResize() {
 
