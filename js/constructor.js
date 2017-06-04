@@ -94,9 +94,9 @@ function init() {
 
 	}
 
-	var material = new THREE.MeshLambertMaterial( { color: 0x000000 } );
+	var material = new THREE.MeshLambertMaterial( { color: 0x000000, map: new THREE.TextureLoader().load( ( 'img/lego-2.png') )  } );
 
-	var line = new THREE.MeshBasicMaterial( geometry, material );
+	var line = new THREE.Mesh( geometry, material );
 	scene.add( line );
 
 	//
