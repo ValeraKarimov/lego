@@ -100,6 +100,7 @@ function init() {
 		if (userSetting.size == '1x1') {
 			cubeGeo = new THREE.BoxGeometry( 20, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 20, 20, 20 );
+			textureCube.repeat.x = 1;
 		} else if (userSetting.size == '1x2') {
 			cubeGeo = new THREE.BoxGeometry( 40, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 40, 20, 20 );
