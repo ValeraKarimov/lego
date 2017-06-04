@@ -61,6 +61,8 @@ function init() {
 
 				e.target.classList.add('active');
 				userSetting.color = e.target.getAttribute('data-color');
+
+				setTextureCube();
 			}
 		}, false)
 		
@@ -86,6 +88,10 @@ function init() {
 	// roll-over helpers and cube
 	var rollOverGeo;
 
+	var texture = new THREE.TextureLoader().load( ('img/lego.png') );
+	texture.wrapS = THREE.RepeatWrapping;
+	texture.repeat.x = 1;
+
 	function setSizeCube () {
 		if (userSetting.size == '1x1') {
 			cubeGeo = new THREE.BoxGeometry( 20, 20, 20 );
@@ -93,20 +99,33 @@ function init() {
 		} else if (userSetting.size == '1x2') {
 			cubeGeo = new THREE.BoxGeometry( 40, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 40, 20, 20 );
-
+			texture.repeat.x = 2;
 		} else if (userSetting.size == '1x3') {
 			cubeGeo = new THREE.BoxGeometry( 60, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 60, 20, 20 );
-
+			texture.repeat.x = 3;
 		} else if (userSetting.size == '1x4') {
 			cubeGeo = new THREE.BoxGeometry( 80, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 80, 20, 20 );
-
+			texture.repeat.x = 4;
 		} else if (userSetting.size == '1x5') {
 			cubeGeo = new THREE.BoxGeometry( 100, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 100, 20, 20 );
+			texture.repeat.x = 5;
 		}
+	};
+
+	var cubeMaterial = [];
+
+	function setTextureCube () {
+		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map:  texture}) ); // top 
+		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+		cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 	}
+	setTextureCube();
 	setSizeCube();
 
 	rollOverMaterial = new THREE.MeshBasicMaterial( { color: userSetting.color, opacity: 0.5, transparent: true } );
@@ -221,15 +240,6 @@ function onDocumentMouseMove( event ) {
 function onDocumentMouseDown( event ) {
 
 	event.preventDefault();
-
-	var cubeMaterial = []
-
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map: new THREE.TextureLoader().load( ('img/lego.png') ) }) ); // top 
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 
 	mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
 
