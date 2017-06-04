@@ -110,8 +110,8 @@ function init() {
 	var texture =  new THREE.TextureLoader().load( ( 'img/lego-2.png') );
 	texture.wrapS = THREE.RepeatWrapping;
 	texture.wrapT = THREE.RepeatWrapping;
-	texture.repeat.x = 50;
-	texture.repeat.y = 50;
+	texture.repeat.x = 10;
+	texture.repeat.y = 10;
 
 	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { map: texture } ) );
 	scene.add( plane );
