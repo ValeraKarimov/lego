@@ -7,87 +7,64 @@ var cubeGeo, cubeMaterial;
 
 var objects = [];
 
-var carouselCont = document.querySelector('.carousel');
-
 var userSetting = {};
-
-// Setting
-
-(function () {
-
-	var setting = document.getElementById('userSetting'),
-		reverseDiv = setting.querySelector('.reverse'),
-		sizeDiv = setting.querySelector('.lego'),
-		colorDiv = setting.querySelector('.color');
-
-
-	for (var i = colorDiv.children.length - 1; i >= 0; i--) {
-		colorDiv.children[i].style.backgroundColor = colorDiv.children[i].getAttribute('data-color');
-	}
-
-
-	// reverseDiv.addEventListener('click', function (e) {
-	// 	e.preventDefault;
-
-	// 	if (e.target.tagName == 'BUTTON') {
-	// 		(userSetting.reverse == true) ? userSetting.reverse = false : userSetting.reverse = true;
-	// 	}
-	// }, false)
-	
-	// userSetting.size
-	
-	colorDiv.addEventListener('click', function (e) {
-		if (e.target.hasAttribute('data-color')) {
-			for (var i = 0; i < colorDiv.children.length; i++) {
-				colorDiv.children[i].classList.remove('active');
-			}
-
-			e.target.classList.add('active');
-			userSetting.color = e.target.getAttribute('data-color');
-			console.log(userSetting)
-		}
-	}, false)
-	
-})();	
-
-// (function () {
-
-// 	for (var i = carouselCont.children.length - 1; i >= 0; i--) {
-// 		carouselCont.children[i].style.backgroundImage = "url(" + carouselCont.children[i].getAttribute('data-texture') + ")";
-// 	}
-
-// })();
-
-// carouselCont.addEventListener('click', function (e) {
-
-// 	if (e.target.className == 'item') {
-
-// 		for (var i = 0; i < carouselCont.children.length; i++) {
-// 			carouselCont.children[i].classList.remove('active');
-// 		}
-		
-		
-// 		e.target.classList.add('active');
-
-// 		userSetting.texture = e.target.getAttribute('data-texture');
-
-
-// 	}
-
-// }, false);
-		
-// document.querySelector('.color input').addEventListener('change', function () {
-
-// 	userSetting.color = (document.querySelector('.color input').value !== undefined) ?  document.querySelector('.color input').value : '#ffffff';
-
-
-// }, false)
 
 
 init();
 render();
 
 function init() {
+
+	// Setting
+
+	(function () {
+
+		var setting = document.getElementById('userSetting'),
+			reverseDiv = setting.querySelector('.reverse'),
+			sizeDiv = setting.querySelector('.lego'),
+			colorDiv = setting.querySelector('.color');
+
+
+		for (var i = colorDiv.children.length - 1; i >= 0; i--) {
+			colorDiv.children[i].style.backgroundColor = colorDiv.children[i].getAttribute('data-color');
+		}
+
+		// reverse
+		reverseDiv.addEventListener('click', function (e) {
+
+			if (e.target.tagName == 'BUTTON') {
+				userSetting.reverse == true ? userSetting.reverse = false : userSetting.reverse = true;
+			}
+		}, false)
+		
+		// size
+		sizeDiv.addEventListener('click', function (e) {
+			if (e.target.hasAttribute('data-size')) {
+				for (var i = 0; i < sizeDiv.children.length; i++) {
+					sizeDiv.children[i].classList.remove('active');
+				}
+
+				e.target.classList.add('active');
+				userSetting.size = e.target.getAttribute('data-size') || '1x1';
+
+				setSizeCube();
+			}
+		}, false)
+		
+		
+		// color
+		colorDiv.addEventListener('click', function (e) {
+			if (e.target.hasAttribute('data-color')) {
+				for (var i = 0; i < colorDiv.children.length; i++) {
+					colorDiv.children[i].classList.remove('active');
+				}
+
+				e.target.classList.add('active');
+				userSetting.color = e.target.getAttribute('data-color');
+			}
+		}, false)
+		
+	})();	
 
 	var info = document.createElement( 'div' );
 	info.style.position = 'absolute';
@@ -114,9 +91,25 @@ function init() {
 	scene.add( rollOverMesh );
 
 	// cubes
+	
+	var cubeGeo;
 
-	cubeGeo = new THREE.BoxGeometry( 60, 20, 20, 10, 10, 10 );
+	function setSizeCube () {
+		if (userSetting.size == '1x1') {
+			cubeGeo = new THREE.BoxGeometry( 20, 20, 20 );
+		} else if (userSetting.size == '1x2') {
+			cubeGeo = new THREE.BoxGeometry( 40, 20, 20 );
+		} else if (userSetting.size == '1x3') {
+			cubeGeo = new THREE.BoxGeometry( 60, 20, 20 );
+		} else if (userSetting.size == '1x4') {
+			cubeGeo = new THREE.BoxGeometry( 80, 20, 20 );
+		} else if (userSetting.size == '1x5') {
+			cubeGeo = new THREE.BoxGeometry( 100, 20, 20 );
+		}
 
+	}
+	
+	
 	// grid
 
 	var size = 500, step = 20;
