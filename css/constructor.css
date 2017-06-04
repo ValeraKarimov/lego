@@ -2,35 +2,51 @@ body {
 	position: relative;
  	overflow: hidden;	
  	margin: 0;
+ 	height: 100vh;
 }
 
-.carousel {
-	position: absolute;
-	display: flex;	
-	padding: 20px;
+#userSetting {
+	position: fixed;
+	top: 0;
+	left: 0;
+	max-width: 180px;
 	width: 100%;
-	z-index: 9999;
+	height: 100%;
+	padding: 10px;
+	background: #fff;
+	box-shadow: 2px 0 10px 0 rgba(0, 0, 0, .2);
 }
 
-.carousel .item {
-	width: 40px;
-	height: 40px;
-	margin: 0 10px;
+#userSetting .lego {
+	display: flex;
+	flex-flow: row wrap;
+	margin-bottom: 20px;
+}
+
+#userSetting .lego .item {
+	padding: 10px;
+	margin: 5px;
+	cursor: pointer;
+}
+
+#userSetting .lego .item.active {
+	color: blue;
+}
+
+#userSetting .color {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+#userSetting .color .item {
+	width: 30px;
+	height: 30px;
+	background: #000;
 	border: 2px solid transparent;
-	background-position: 50% 50% ;
+	margin: 5px;
+	cursor: pointer;
 }
 
-
-.carousel .item.active {
-	border: 2px solid blue;
-}
-
-.color {
-	position: absolute;
-	top: 150px;
-	width: 100%;
-}
-
-.color input {
-	border: none;
+#userSetting .color .item.active {
+	border: 2px solid red;
 }
