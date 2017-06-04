@@ -11,6 +11,45 @@ var carouselCont = document.querySelector('.carousel');
 
 var userSetting = {};
 
+// Setting
+
+(function () {
+
+	var setting = document.getElementById('userSetting'),
+		reverseDiv = setting.querySelector('.reverse'),
+		sizeDiv = setting.querySelector('.lego'),
+		colorDiv = setting.querySelector('.color');
+
+
+	for (var i = colorDiv.children.length - 1; i >= 0; i--) {
+		colorDiv.children[i].style.backgroundColor = colorDiv.children[i].getAttribute('data-color');
+	}
+
+
+	// reverseDiv.addEventListener('click', function (e) {
+	// 	e.preventDefault;
+
+	// 	if (e.target.tagName == 'BUTTON') {
+	// 		(userSetting.reverse == true) ? userSetting.reverse = false : userSetting.reverse = true;
+	// 	}
+	// }, false)
+	
+	// userSetting.size
+	
+	colorDiv.addEventListener('click', function (e) {
+		if (e.target.hasAttribute('data-color')) {
+			for (var i = 0; i < colorDiv.children.length; i++) {
+				colorDiv.children[i].classList.remove('active');
+			}
+
+			e.target.classList.add('active');
+			userSetting.color = e.target.getAttribute('data-color');
+			console.log(userSetting)
+		}
+	}, false)
+	
+})();	
+
 // (function () {
 
 // 	for (var i = carouselCont.children.length - 1; i >= 0; i--) {
@@ -52,7 +91,7 @@ function init() {
 
 	var info = document.createElement( 'div' );
 	info.style.position = 'absolute';
-	info.style.bottom = '10px';
+	info.style.top = '10px';
 	info.style.width = '100%';
 	info.style.textAlign = 'center';
 	info.innerHTML = '<strong>click</strong>: add cube, <strong>shift + click</strong>: remove cube';
@@ -189,7 +228,7 @@ function onDocumentMouseDown( event ) {
 
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
-	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map: new THREE.TextureLoader().load( (userSetting.texture || 'img/lego-2.png') ) }) ); // top 
+	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map: new THREE.TextureLoader().load( ('img/lego-2.png') ) }) ); // top 
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
 	cubeMaterial.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
