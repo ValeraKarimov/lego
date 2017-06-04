@@ -96,7 +96,7 @@ function init() {
 
 	var material = new THREE.MeshLambertMaterial( { color: 0x000000, map: new THREE.TextureLoader().load( ( 'img/lego-2.png') )  } );
 
-	var line = new THREE.Mesh( geometry, material );
+	var line = new THREE.MeshBasicMaterial( geometry, material );
 	scene.add( line );
 
 	//
@@ -107,7 +107,7 @@ function init() {
 	var geometry = new THREE.PlaneBufferGeometry( 950, 970 );
 	geometry.rotateX( - Math.PI / 2 );
 
-	plane = new THREE.MeshBasicMaterial( geometry, new THREE.MeshBasicMaterial( { visible: false } ) );
+	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { visible: false } ) );
 	scene.add( plane );
 
 	objects.push( plane );
