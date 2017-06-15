@@ -36,6 +36,7 @@ function init() {
 
 			if (e.target.tagName == 'BUTTON') {
 				userSetting.reverse == true ? userSetting.reverse = false : userSetting.reverse = true;
+				setSizeCube();
 			}
 		}, false)
 		
@@ -70,6 +71,10 @@ function init() {
 		
 	})();	
 
+	userSetting.color = "#ffffff";
+	userSetting.size = "1x5";
+	userSetting.reverse = false;
+
 	var info = document.createElement( 'div' );
 	info.style.position = 'absolute';
 	info.style.top = '10px';
@@ -91,15 +96,24 @@ function init() {
 	var rollOverGeo;
 
 	var textureCube = new THREE.TextureLoader().load( ('img/lego.png') );
+
 	textureCube.wrapS = THREE.RepeatWrapping;
 	textureCube.wrapT = THREE.RepeatWrapping;
 	textureCube.repeat.x = 1;
 	textureCube.repeat.y = 1;
 
+	userSetting.texture = textureCube;
+	userSetting.texture.neesdUpdate = true;
+
 	function setSizeCube () {
+		var size = parseInt(userSetting.size[2]);
+		cubeGeo = new THREE.BoxGeometry(userSetting.reverse ? 20 : (size * 20), 20, userSetting.reverse ? (size * 20) : 20);
+		rollOverGeo = new THREE.BoxGeometry(userSetting.reverse ? 20 : (size * 20), 20, userSetting.reverse ? (size * 20) : 20);
+		textureCube.repeat.x = userSetting.reverse ? 1 : size;
+		textureCube.repeat.z = userSetting.reverse ? size : 1;/*
 		if (userSetting.size == '1x5') {
 			cubeGeo = new THREE.BoxGeometry( 100, 20, 20 );
-			rollOverGeo = new THREE.BoxGeometry( 100, 20, 20 );
+			rollOverGeo = new THREE.BoxGeometry( userSetting.reverse ? 100 : 20, 20, 20 );
 			textureCube.repeat.x = 5;
 		} else if (userSetting.size == '1x4') {
 			cubeGeo = new THREE.BoxGeometry( 80, 20, 20 );
@@ -117,7 +131,10 @@ function init() {
 			cubeGeo = new THREE.BoxGeometry( 20, 20, 20 );
 			rollOverGeo = new THREE.BoxGeometry( 20, 20, 20 );
 			textureCube.repeat.x = 1;
-		}
+		}*/
+		scene.remove(rollOverMesh);
+		rollOverMesh = new THREE.Mesh(rollOverGeo, rollOverMaterial);
+		scene.add(rollOverMesh);
 	};
 
 	function setTextureCube () {
@@ -175,7 +192,7 @@ function init() {
 	texture.repeat.y = 50;
 
 
-	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( {color: 0xffffff, map: texture } ) );
+	plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( {color: userSetting.color, map: texture } ) );
 	scene.add( plane );
 
 	objects.push( plane );
@@ -205,6 +222,39 @@ function init() {
 
 	window.addEventListener( 'resize', onWindowResize, false );
 
+
+}
+
+function setTextureCube () {
+
+	var texture = new THREE.TextureLoader().load( ('img/lego.png') );
+	texture.wrapS = THREE.RepeatWrapping;
+	texture.wrapT = THREE.RepeatWrapping;
+	texture.repeat.x = parseInt(userSetting.size[2]);
+	texture.repeat.y = 1;
+	texture.repeat.x = userSetting.reverse ? 1 : parseInt(userSetting.size[2]);
+	texture.repeat.y = userSetting.reverse ? parseInt(userSetting.size[2]) : 1;
+//userSetting.texture
+	var material = [];
+	material.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+	material.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+	material.push( new THREE.MeshLambertMaterial({ color: userSetting.color, map:  texture}) ); // top 
+	material.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+	material.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+	material.push( new THREE.MeshLambertMaterial({ color: userSetting.color }) );
+	return material;
+}
+
+function newVoxel() {
+
+/*new THREE.MeshLambertMaterial({ 
+			color: userSetting.color, 
+			map:  userSetting.texture
+		})*/
+	var mesh = new THREE.Mesh(cubeGeo,
+		setTextureCube()
+	);
+	return mesh;
 
 }
 
@@ -270,7 +320,7 @@ function onDocumentMouseDown( event ) {
 
 		} else {
 
-			var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
+			var voxel = newVoxel();
 			voxel.position.copy( intersect.point ).add( intersect.face.normal );
 			voxel.position.divideScalar( 20 ).floor().multiplyScalar( 20 ).addScalar( 10 );
 			
